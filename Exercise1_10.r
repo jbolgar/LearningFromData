@@ -8,7 +8,7 @@ ten.flips <- function(){
 num.runs <- 1000
 
 run.experiment <- function(){
-  runs <- sapply(1:num.runs, function(i){ten.flips()})
+  runs <- replicate(num.runs, ten.flips())
   
   c(first.run = runs[1],
     random.run = runs[sample(num.runs, size = 1)],
@@ -29,7 +29,7 @@ hoeffding <- function(epsilon, N){
 }
 
 epsilons <- (0:5)/10
-hoeffding.values <- sapply((0:5)/10, function(epsilon){ hoeffding(epsilon, num.flips)})
+hoeffding.values <- sapply(epsilons, function(epsilon){ hoeffding(epsilon, num.flips)})
 
 dists.first <- abs(experiments[1,] - 0.5)
 
