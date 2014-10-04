@@ -16,7 +16,7 @@ run.experiment <- function(){
   )
 }
 
-num.experiments <- 1e2
+num.experiments <- 1e4
 
 experiments <- sapply(1:num.experiments, function(i){
   # print an update every 1000 experiments
